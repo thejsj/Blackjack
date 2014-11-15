@@ -17,10 +17,11 @@ class window.Hand extends Backbone.Collection
     false
 
   hit: ->
-    @trigger 'hit'
     @add(@deck.pop())
+    @trigger 'hit'
 
   stand: ->
+    console.log 'stand'
     @trigger 'stand'
 
   hasAce: -> @reduce (memo, card) ->
