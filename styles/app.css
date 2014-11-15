@@ -14,3 +14,7 @@
 .hand {
   overflow: auto;
 }
+.container-fluid {
+  max-width: 900px;
+  margin-top: 30px;
+}
