@@ -93,6 +93,8 @@ describe 'Hand', ->
       hand.add new Card {rank: 1, suit: 0}
       expect(hand.minScore()).to.equal 13
 
+  ## TODO: Write @isBlackJack() Test
+  ## TODO: Write @score() Test
 
 
 

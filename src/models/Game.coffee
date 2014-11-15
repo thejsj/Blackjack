@@ -6,22 +6,42 @@ class window.Game extends Backbone.Model
     @set 'betAmount', params.betAmount || 0
 
     @get('playerHand')
-      .on 'bust', @endGame, @
+      .on 'bust', @dealerWin, @
       .on 'stand', @get('dealerHand').hitUntil17, @get('dealerHand')
 
     @get('dealerHand')
-      .on 'bust', @endGame, @
+      .on 'bust', @playerWin, @
       .on 'stand', @decideWinner, @
+
+  playerWin: ->
+    if @get('playerHand').isBlackJack()
+      @set('betAmount', @get('betAmount')*2.5)
+    else
+      @set('betAmount', @get('betAmount')*2)
+    @endGame()
+
+  dealerWin: ->
+    @set('betAmount', 0)
+    @endGame()
 
   endGame: ->
     @trigger 'finish', @get('betAmount')
     @get('playerHand')
-      .off 'bust', @endGame, @
+      .off 'bust', @dealerWin, @
       .off 'stand', @get('dealerHand').hitUntil17, @get('dealerHand')
 
     @get('dealerHand')
-      .off 'bust', @endGame, @
+      .off 'bust', @playerWin, @
       .off 'stand', @decideWinner, @
 
   decideWinner: ->
-    @endGame()
+    # Get scores for both players
+    playerScore = @get('playerHand').score()
+    dealerScore = @get('dealerHand').score()
+
+    if playerScore == dealerScore
+      @endGame()
+    else if playerScore > dealerScore
+      @playerWin()
+    else
+      @dealerWin()

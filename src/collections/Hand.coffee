@@ -11,6 +11,11 @@ class window.Hand extends Backbone.Collection
       @trigger 'bust'
     busted
 
+  isBlackJack: ->
+    if @score() == 21 and @length == 2
+      return true
+    false
+
   hit: ->
     @trigger 'hit'
     @add(@deck.pop())
@@ -23,8 +28,14 @@ class window.Hand extends Backbone.Collection
   , 0
 
   minScore: -> @reduce (score, card) ->
-    score + if card.get 'revealed' then card.get 'value' else 0
-  , 0
+      score + if card.get 'revealed' then card.get 'value' else 0
+    , 0
+
+  score: ->
+    if @hasAce() and @scores()[1] < 22
+      return @scores()[1]
+    @minScore()
+
 
   scores: ->
     # The scores are an array of potential scores.
