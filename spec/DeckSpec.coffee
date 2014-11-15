@@ -1,7 +1,7 @@
 assert = chai.assert
 expect = chai.expect
 
-describe 'deck', ->
+describe 'Deck', ->
   deck = null
   hand = null
 

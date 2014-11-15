@@ -6,10 +6,10 @@ class window.Hand extends Backbone.Collection
     return @
 
   isBusted: ->
-    isBusted = @minScore() > 21
-    if isBusted?
+    busted = @minScore() > 21
+    if busted
       @trigger 'bust'
-    isBusted
+    busted
 
   hit: ->
     @trigger 'hit'
