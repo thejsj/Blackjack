@@ -3,14 +3,14 @@ expect = chai.expect
 
 describe 'Hand', ->
 
-  describe 'instantiation', ->
+  describe 'Instantiation', ->
 
     it 'should have two cards when instantiated', ->
       deck = new Deck()
       hand = deck.dealPlayer()
       assert.strictEqual hand.length, 2
 
-  describe 'hit', ->
+  describe 'Hit', ->
     it 'should have one more card after hitting', ->
       deck = new Deck()
       hand = deck.dealPlayer()
@@ -28,7 +28,7 @@ describe 'Hand', ->
       hand.hit()
       expect(hand.called).to.equal true
 
-  describe 'busting', ->
+  describe 'Busting', ->
     it 'should know when it busted', ->
       deck = new Deck()
       hand = deck.dealPlayer()
@@ -47,7 +47,7 @@ describe 'Hand', ->
         hand.hit()
       expect(hand.called).to.equal true
 
-  describe 'score', ->
+  describe 'Score', ->
     it 'should know it\'s score when dealing with numbers', ->
       deck = new Deck()
       hand = new Hand()

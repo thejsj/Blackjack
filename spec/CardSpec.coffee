@@ -3,7 +3,7 @@ expect = chai.expect
 
 describe 'Card', ->
 
-  describe 'value', ->
+  describe 'Value', ->
     it 'should know it\'s value', ->
       card = new Card {rank: 7, suit: 0}
       expect(card.get('value')).to.equal 7
@@ -34,7 +34,7 @@ describe 'Card', ->
       card = new Card {rank: 0, suit: 3}
       expect(card.get('suitName')).to.equal 'Hearts'
 
-  describe 'flip', ->
+  describe 'Flip', ->
     it 'should not be revealed after it\'s flipped', ->
       card = new Card {rank: 7, suit: 0}
       expect(card.get('revealed')).to.equal true

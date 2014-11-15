@@ -5,16 +5,23 @@ class window.Game extends Backbone.Model
     @set 'dealerHand', @get('deck').dealDealer()
     @set 'betAmount', params.betAmount || 0
 
-    @playerHand
+    @get('playerHand')
       .on 'bust', @endGame, @
-      .on 'stand', @dealerHand.hitUntil17(), @
+      .on 'stand', @get('dealerHand').hitUntil17, @get('dealerHand')
 
-    @dealerHand
+    @get('dealerHand')
       .on 'bust', @endGame, @
       .on 'stand', @decideWinner, @
 
   endGame: ->
     @trigger 'finish', @get('betAmount')
+    @get('playerHand')
+      .off 'bust', @endGame, @
+      .off 'stand', @get('dealerHand').hitUntil17, @get('dealerHand')
+
+    @get('dealerHand')
+      .off 'bust', @endGame, @
+      .off 'stand', @decideWinner, @
 
   decideWinner: ->
     @endGame()

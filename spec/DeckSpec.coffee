@@ -5,12 +5,12 @@ describe 'Deck', ->
   deck = null
   hand = null
 
-  describe "deck constructor", ->
+  describe "Deck constructor", ->
     it "should create a card collection", ->
       collection = new Deck()
       assert.strictEqual collection.length, 52
 
-  describe 'deal hands to the player', ->
+  describe 'Deal hands to the player', ->
     beforeEach ->
       deck = new Deck()
       hand = deck.dealPlayer()
@@ -22,7 +22,7 @@ describe 'Deck', ->
       assert.strictEqual hand.at(0).get('revealed'), true
       assert.strictEqual hand.at(1).get('revealed'), true
 
-  describe 'deal hand to the dealer', ->
+  describe 'Deal hand to the dealer', ->
     beforeEach ->
       deck = new Deck()
       hand = deck.dealDealer()
@@ -35,7 +35,7 @@ describe 'Deck', ->
       assert.strictEqual hand.at(1).get('revealed'), true
 
 
-  describe 'hit', ->
+  describe 'Hit', ->
 
     it 'should give the last card from the deck', ->
       deck = new Deck()
