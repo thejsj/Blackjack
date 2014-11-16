@@ -21,7 +21,6 @@ class window.Hand extends Backbone.Collection
     @trigger 'hit'
 
   stand: ->
-    console.log 'stand'
     @trigger 'stand'
 
   hasAce: -> @reduce (memo, card) ->

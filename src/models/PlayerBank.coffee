@@ -5,7 +5,6 @@ class window.PlayerBank extends Backbone.Model
     @get 'betAmount'
 
   increaseBy10: ->
-    console.log 'increase bet by 10'
     @set 'betAmount', (@get('betAmount') + 10)
     @get 'betAmount'
 

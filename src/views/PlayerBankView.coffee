@@ -4,8 +4,8 @@ class window.PlayerBankView extends Backbone.View
 
   template: _.template '
     <h2>Player Bank</h2>
-    <button class="plus-ten">+10</button>
-    <button class="minus-ten">-10</button>
+    <button class="plus-ten btn btn-md btn-primary">+10</button>
+    <button class="minus-ten btn btn-md btn-primary">-10</button>
     <p>Bet Amount: <%= betAmount %></p>
     <p>Total: <%= total %></p>
   '
@@ -17,7 +17,6 @@ class window.PlayerBankView extends Backbone.View
   initialize: ->
     that = @
     $(window).on 'keydown', (e) ->
-      console.log 'Increase By 10'
       if e.keyCode == 187
         that.model.increaseBy10()
         e.preventDefault()

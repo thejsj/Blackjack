@@ -45,12 +45,23 @@ module.exports = function (grunt) {
         dest: 'compiled/spec',
         ext: '.js'
       },
+    },
+    svgstore: {
+      options: {
+        prefix : 'shape-', // This will prefix each <g> ID
+      },
+      default : {
+        files: {
+          'img/all-cards.svg': ['img/cards/**/*.svg'],
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-svgstore');
 
   // Tasks
   grunt.registerTask('default', ['build']);

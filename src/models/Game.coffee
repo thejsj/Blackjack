@@ -25,7 +25,6 @@ class window.Game extends Backbone.Model
     @endGame()
 
   endGame: ->
-    console.log 'Finish: ', @get 'betAmount'
     @trigger 'finish', @get('betAmount')
     @get('playerHand')
       .off 'bust', @dealerWin, @

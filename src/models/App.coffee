@@ -10,9 +10,7 @@ class window.App extends Backbone.Model
     @get('currentGame').on 'finish', @finish, @
 
   finish: (betAmount) ->
-    console.log 'App.Finish: ', betAmount
     newPlayerBankTotal = @get('playerBank').get('total') + betAmount
-    console.log newPlayerBankTotal
     @get('playerBank').set 'total', newPlayerBankTotal
     @trigger 'finish', betAmount
 
