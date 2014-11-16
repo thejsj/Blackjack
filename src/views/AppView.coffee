@@ -1,11 +1,11 @@
 class window.AppView extends Backbone.View
   template: _.template '
     <div class="container-fluid">
+      <div class="row header">
+        <div class="player-bank-container"></div>
+      </div>
       <div class="row">
-        <div class="col-sm-3">
-          <div class="player-bank-container"></div>
-        </div>
-        <div class="col-sm-9">
+        <div class="col-sm-12">
           <div class="dealer-hand-container"></div>
           <div class="player-hand-container"></div>
           <button class="hit-button btn btn-lg btn-primary">Hit</button>

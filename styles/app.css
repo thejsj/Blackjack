@@ -16,6 +16,29 @@
   border-radius: 5px;
 }
 
+.header {
+  border-bottom: solid #ddd 1px;
+}
+
+.header h3 {
+  margin: 0.5em 0em;
+}
+
+.header .buttons {
+  margin: 0.5em 0;
+}
+
+.header .info-title {
+  text-transform: uppercase;
+  color: #666;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: 0.8em;
+}
+
+.header h2 {
+  margin: 0.5em 0em;
+}
 
 .single-card.covered svg {
   background-color: black;
