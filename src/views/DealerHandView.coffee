@@ -2,7 +2,7 @@ class window.DealerHandView extends window.HandView
   className: 'hand'
 
   template: _.template '
-    <h4>Dealer (<span class="score"></span>)</h4>
+  <h3>Dealer <span class="badge score"></span></h3>
     <div class="cards"></div>
   '
 

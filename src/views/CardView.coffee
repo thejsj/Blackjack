@@ -32,4 +32,7 @@ class window.CardView extends Backbone.View
     if not @model.get 'revealed'
       @$el.addClass 'covered'
     @$el.addClass @model.get 'abbreviation'
+    setTimeout =>
+      @$el.addClass 'active'
+    @$el
 

@@ -41,6 +41,14 @@
   overflow: auto;
 }
 
+.hand.card-length-4 .single-card, .hand.card-length-5 .single-card {
+  margin-left: -150px;
+}
+
+.hand.card-length-6 .single-card, .hand.card-length-7 .single-card {
+  margin-left: -150px;
+}
+
 .hand h4 {
   height: 40px;
 }
@@ -67,13 +75,23 @@
 }
 
 .single-card:first-child {
-  margin-left: 3px;
+  margin-left: 3px !important;
+}
+
+.single-card .card {
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .single-card.covered .card {
   background-color: #286090;
   color: #286090;
   border-color: #204d74;
+}
+
+.single-card.active .card {
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 /** Card **/
