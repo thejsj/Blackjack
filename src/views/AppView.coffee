@@ -4,14 +4,22 @@ class window.AppView extends Backbone.View
       <div class="row header">
         <div class="player-bank-container"></div>
       </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="dealer-hand-container"></div>
-          <div class="player-hand-container"></div>
-          <button class="hit-button btn btn-lg btn-primary">Hit</button>
-          <button class="stand-button btn btn-lg btn-primary">Stand</button>
+      <div class="alert-container row">
+        <div class="alert alert-info" role="alert">
+          <strong>Go Ahead!</strong> Start playing
         </div>
       </div>
+      <div class="hand-container row">
+        <div class="col-sm-6 player-hand-container"></div>
+        <div class="col-sm-6 dealer-hand-container"></div>
+      </div>
+      <div class="row footer">
+        <div class="col-sm-9">
+          <p>Keyboard Shortcuts <strong>\'H\'</strong> Hit &#8226 <strong>\'S\'</strong> Stand &#8226 <strong>\'+\'</strong> +10 &#8226 <strong>\'-\'</strong> -10</p>
+        </div>
+        <div class="col-sm-3">
+          <p><a href="https://twitter.com/TonyRizko">Tony Rizko</a> and <a href="http://hiphipjorge.com">Jorge Silva</a></p>
+        </div>
     </div>
   '
 
@@ -35,24 +43,27 @@ class window.AppView extends Backbone.View
         e.stopPropagation()
 
     @playerBankView = new PlayerBankView {model: @model.get('playerBank')}
+    @alertView = new AlertView()
 
     @model.on 'finish', @finish, @
     @model.createNewGame()
     @render()
 
   finish: (betAmount) ->
-    alert('You Won ' + betAmount);
+    originalBet = @model.get('currentGame').get('originalBetAmount')
     @model.createNewGame()
-    @render()
+    @render(betAmount, originalBet)
 
-  render: ->
+  render: (betAmount, originalBet) ->
     @$el.children().detach()
     @$el.html @template()
+    if betAmount? and originalBet?
+      @$('.alert-container').html @alertView.render(betAmount, originalBet)
     @$('.player-bank-container').html @playerBankView.$el
     @$('.player-hand-container').html new HandView({
         collection: @model.get('currentGame').get 'playerHand'
       }).el
-    @$('.dealer-hand-container').html new HandView({
+    @$('.dealer-hand-container').html new DealerHandView({
         collection: @model.get('currentGame').get 'dealerHand'
       }).el
 

@@ -4,6 +4,7 @@ class window.Game extends Backbone.Model
     @set 'playerHand', @get('deck').dealPlayer()
     @set 'dealerHand', @get('deck').dealDealer()
     @set 'betAmount', params.betAmount || 0
+    @set 'originalBetAmount', @get 'betAmount'
 
     @get('playerHand')
       .on 'bust', @dealerWin, @

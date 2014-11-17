@@ -1,26 +1,21 @@
-.single-card {
-  float: left;
-  width: 200px;
-  height: 320px;
-  margin-right: 20px;
+/** Global **/
+
+.container-fluid {
+  max-width: 900px;
+  margin-top: 30px;
 }
 
-.single-card {
-  margin-left: 3px;
-}
-
-.single-card svg {
-  width: 100px;
-  height: 140px;
-  border: solid 1px black;
-  border-radius: 5px;
-}
+/** Header **/
 
 .header {
   border-bottom: solid #ddd 1px;
 }
 
 .header h3 {
+  margin: 0.5em 0em;
+}
+
+.header h2 {
   margin: 0.5em 0em;
 }
 
@@ -36,62 +31,93 @@
   font-size: 0.8em;
 }
 
-.header h2 {
-  margin: 0.5em 0em;
+.header .btn-group {
+  display: block;
 }
 
-.single-card.covered svg {
-  background-color: black;
-}
+/** Hand **/
 
 .hand {
   overflow: auto;
 }
-.container-fluid {
-  max-width: 1200px;
-  margin-top: 30px;
+
+.hand h4 {
+  height: 40px;
 }
+
+.alert-container {
+  margin-top: 20px;
+}
+
 .player-hand-container {
   margin-bottom: 30px;
 }
 
+.hand .btn-group {
+  margin-left: 10px;
+}
+
+/** Single Card **/
+
+.single-card {
+  float: left;
+  width: 200px;
+  height: 320px;
+  margin-left: -140px;
+}
+
+.single-card:first-child {
+  margin-left: 3px;
+}
+
+.single-card.covered .card {
+  background-color: #286090;
+  color: #286090;
+  border-color: #204d74;
+}
+
+/** Card **/
 
 .card {
   width: 200px;
   height: 280px;
 }
 
-  /* Card */
-  .card { background-color: #fff; -moz-border-radius: 10px; -webkit-border-radius: 10px; -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); float: left; height: 280px; margin: 0 15px 15px 0; position: relative; width: 200px; z-index: 2; }
-  .card .back { background-color: red; -webkit-transform: rotateY(180deg); }
-  .card.flipped { -webkit-transform: rotateY(180deg); }
-  .card.Hearts, .card.heart, .card.Diamonds, .card.diamond { color: red; }
+.card { background-color: #fff; -moz-border-radius: 10px; -webkit-border-radius: 10px; -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); float: left; height: 280px; margin: 0 15px 15px 0; position: relative; width: 200px; z-index: 2; }
+.card .back { background-color: red; -webkit-transform: rotateY(180deg); }
+.card.flipped { -webkit-transform: rotateY(180deg); }
+.card.Hearts, .card.heart, .card.Diamonds, .card.diamond { color: red; }
 
-  .card .corner { line-height: 1; overflow: hidden; position: absolute; text-align: center; }
-  .card .corner span { display: block; font-size: 24px; font-weight: bold; }
-  .card .corner .number { font-size: 32px; height: 32px; line-height: 32px; }
-  .card.ten .corner .number { font-size: 24px; letter-spacing: -1.8px; }
-  .card .corner.top { left: 8px; top: 12px; }
-  .card .corner.bottom { bottom: 12px; right: 8px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .corner { line-height: 1; overflow: hidden; position: absolute; text-align: center; }
+.card .corner span { display: block; font-size: 24px; font-weight: bold; }
+.card .corner .number { font-size: 32px; height: 32px; line-height: 32px; }
+.card.ten .corner .number { font-size: 24px; letter-spacing: -1.8px; }
+.card .corner.top { left: 8px; top: 12px; }
+.card .corner.bottom { bottom: 12px; right: 8px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
 
-  .card .suit { font-size: 64px; font-weight: bold; height: 60px; line-height: 60px; overflow: hidden; position: absolute; text-align: center; width: 50px; }
-  .card .top_center { left: 76px; top: 24px; }
-  .card .top_left { left: 30px; top: 24px; }
-  .card .top_right { right: 30px; top: 24px; }
+.card .suit { font-size: 64px; font-weight: bold; height: 60px; line-height: 60px; overflow: hidden; position: absolute; text-align: center; width: 50px; }
+.card .top_center { left: 76px; top: 24px; }
+.card .top_left { left: 30px; top: 24px; }
+.card .top_right { right: 30px; top: 24px; }
 
-  .card .middle_center { left: 76px; top: 110px; }
-  .card .middle_top { left: 76px; top: 70px; }
-  .card .middle_bottom { bottom: 70px; left: 76px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-  .card .middle_left { left: 30px; top: 110px; }
-  .card .middle_right { right: 30px; top: 110px; }
-  .card .middle_top_center { left: 76px; top: 60px; }
-  .card .middle_top_left { left: 30px; top: 80px; }
-  .card .middle_top_right { right: 30px; top: 80px; }
-  .card .middle_bottom_left { bottom: 80px; left: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-  .card .middle_bottom_right { bottom: 80px; right: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-  .card .middle_bottom_center { bottom: 60px; left: 76px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .middle_center { left: 76px; top: 110px; }
+.card .middle_top { left: 76px; top: 70px; }
+.card .middle_bottom { bottom: 70px; left: 76px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .middle_left { left: 30px; top: 110px; }
+.card .middle_right { right: 30px; top: 110px; }
+.card .middle_top_center { left: 76px; top: 60px; }
+.card .middle_top_left { left: 30px; top: 80px; }
+.card .middle_top_right { right: 30px; top: 80px; }
+.card .middle_bottom_left { bottom: 80px; left: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .middle_bottom_right { bottom: 80px; right: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .middle_bottom_center { bottom: 60px; left: 76px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
 
-  .card .bottom_center { bottom: 24px; left: 76px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-  .card .bottom_left { bottom: 24px; left: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-  .card .bottom_right { bottom: 24px; right: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .bottom_center { bottom: 24px; left: 76px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .bottom_left { bottom: 24px; left: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.card .bottom_right { bottom: 24px; right: 30px; -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); }
 
+.footer {
+  border-top: solid #ddd 1px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
